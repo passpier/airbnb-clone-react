@@ -25,7 +25,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
       {/*middle - search*/}
       <div className="flex items-center md:border-2 rounded-full py-2 md:shadow-sm">
         <input
-          className="flex-grow pl-5 bg-transparent outline-noe text-sm text-gray-600 placeholder-gray-400"
+          className="flex-grow pl-5 bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400"
           type="text"
           placeholder="Start your search"
         />
