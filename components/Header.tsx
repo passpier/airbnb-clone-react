@@ -16,9 +16,8 @@ const Header: React.FC<HeaderProps> = ({}) => {
       <div className="relative flex item-center h-10 cursor-pointer my-auto">
         <Image
           src="https://links.papareact.com/qd3"
-          layout="fill"
-          objectFit="contain"
-          objectPosition="left"
+          style={{ objectFit: "contain", objectPosition: "left" }}
+          fill
           alt="airbnb logo"
         />
       </div>
