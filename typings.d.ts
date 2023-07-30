@@ -3,3 +3,8 @@ interface City {
   location: string;
   distance: string;
 }
+
+interface Accommodation {
+  img: string;
+  title: string;
+}
