@@ -4,7 +4,17 @@ interface City {
   distance: string;
 }
 
-interface Accommodation {
+interface Category {
   img: string;
   title: string;
+}
+
+interface Accommodation {
+  img: string;
+  location: string;
+  title: string;
+  description: string;
+  star: number;
+  price: string;
+  total: string;
 }

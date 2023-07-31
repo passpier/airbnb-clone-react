@@ -3,7 +3,7 @@ import Image from "next/image";
 
 interface MediumCardProps {}
 
-const MediumCard: React.FC<Accommodation> = ({ img, title }) => {
+const MediumCard: React.FC<Category> = ({ img, title }) => {
   return (
     <div className="cursor-pointer hover:scale-105 transform transition duration-300 ease-out">
       <div className="relative h-80 w-80">

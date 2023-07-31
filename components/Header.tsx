@@ -8,19 +8,22 @@ import {
   UsersIcon,
 } from "@heroicons/react/24/solid";
 import Image from "next/image";
-import React, { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import React, { useCallback, useState } from "react";
 import { DateRangePicker, RangeKeyDict } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 
-interface HeaderProps {}
+interface HeaderProps {
+  placeholder?: string;
+}
 
-const Header: React.FC<HeaderProps> = ({}) => {
+const Header: React.FC<HeaderProps> = ({ placeholder }) => {
   const [searchInput, setSearchInput] = useState("");
   const [statDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [numberOfGuests, setNumberOfGuests] = useState(1);
-
+  const router = useRouter();
   const resetInput = () => {
     setSearchInput("");
   };
@@ -32,6 +35,12 @@ const Header: React.FC<HeaderProps> = ({}) => {
     setEndDate(ranges.selection.endDate);
   };
 
+  const search = () => {
+    router.push(
+      `/search?location=${searchInput}&startDate=${statDate.toISOString()}&endDate=${endDate.toISOString()}&noOfGuests=${numberOfGuests}`,
+    );
+  };
+
   const selectionRange = {
     startDate: statDate,
     endDate: endDate,
@@ -41,7 +50,10 @@ const Header: React.FC<HeaderProps> = ({}) => {
   return (
     <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10">
       {/*Left*/}
-      <div className="relative flex item-center h-10 cursor-pointer my-auto">
+      <div
+        onClick={() => router.push("/")}
+        className="relative flex item-center h-10 cursor-pointer my-auto"
+      >
         <Image
           src="https://links.papareact.com/qd3"
           style={{ objectFit: "contain", objectPosition: "left" }}
@@ -57,7 +69,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
           onChange={(e) => setSearchInput(e.target.value)}
           className="flex-grow pl-5 bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400"
           type="text"
-          placeholder="Start your search"
+          placeholder={placeholder || "Start your search"}
         />
         <MagnifyingGlassIcon className=" hidden  md:inline-flex h-8 bg-red-400 text-white rounded-full p-2 cursor-pointer md:mx-2" />
       </div>
@@ -97,7 +109,9 @@ const Header: React.FC<HeaderProps> = ({}) => {
             <button onClick={resetInput} className="flex-grow text-gray-500">
               Cancel
             </button>
-            <button className="flex-grow text-red-400">Search</button>
+            <button onClick={search} className="flex-grow text-red-400">
+              Search
+            </button>
           </div>
         </div>
       )}
