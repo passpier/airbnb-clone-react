@@ -17,4 +17,6 @@ interface Accommodation {
   star: number;
   price: string;
   total: string;
+  long: number;
+  lat: number;
 }

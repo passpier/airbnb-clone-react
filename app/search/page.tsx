@@ -1,7 +1,9 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import InfoCard from "@/components/InfoCard";
+import Map from "@/components/Map";
 import { format } from "date-fns";
+import React from "react";
 
 export default async function Search({
   searchParams,
@@ -13,9 +15,9 @@ export default async function Search({
     noOfGuests: number;
   };
 }) {
-  const searchResults = await fetch("https://www.jsonkeeper.com/b/5NPS").then(
-    (res) => res.json(),
-  );
+  const searchResults: Accommodation[] = await fetch(
+    "https://www.jsonkeeper.com/b/5NPS",
+  ).then((res) => res.json());
 
   const { location, startDate, endDate, noOfGuests } = searchParams;
 
@@ -44,16 +46,9 @@ export default async function Search({
           </div>
           <div className="flex flex-col">
             {searchResults.map(
-              ({
-                img,
-                location,
-                title,
-                description,
-                star,
-                price,
-                total,
-              }: Accommodation) => (
+              ({ img, location, title, description, star, price, total }) => (
                 <InfoCard
+                  key={img}
                   img={img}
                   location={location}
                   title={title}
@@ -66,8 +61,10 @@ export default async function Search({
             )}
           </div>
         </section>
+        <section className="hidden xl:inline-flex xl:min-w-[600px]">
+          <Map searchResults={searchResults} />
+        </section>
       </main>
-      <Footer />
     </div>
   );
 }

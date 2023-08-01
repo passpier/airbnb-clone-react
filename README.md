@@ -1,6 +1,18 @@
 # Airbnb Clone with Next.js
 
-## MapBox
+<img src="docs/map_snapshot.png" style="max-width: 100%;">
+
+## Mapbox
+
+Mapbox Studio provides tools for converting your data to tilesets and creating styles.
+Select **New style** and choose **Navigation** template.
+
+### Customize Navigation
+
+1. Go to **Road network** and change color of **Motorways and trunks** to `#FD5B61`
+2. Click **Shared Icon** to get **Style URL** and **Access token**
+3. Install `react-map-gl` to your React project
+
 
 ## Getting Started
 

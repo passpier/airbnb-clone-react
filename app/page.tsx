@@ -18,10 +18,6 @@ export default async function Home() {
 
   return (
     <div className="">
-      <Head>
-        <title>Airbnb</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <Header />
       <Banner />
       <main className="max-w-7xl mx-auto px-8 sm:px-16">
@@ -54,7 +50,6 @@ export default async function Home() {
           buttonText="Get Inspired"
         />
       </main>
-      <Footer />
     </div>
   );
 }

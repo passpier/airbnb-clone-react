@@ -3,9 +3,17 @@ import React from "react";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { StarIcon } from "@heroicons/react/24/solid";
 
-interface InfoCardProps {}
+interface InfoCardProps {
+  img: string;
+  location: string;
+  title: string;
+  description: string;
+  star: number;
+  price: string;
+  total: string;
+}
 
-const InfoCard: React.FC<Accommodation> = ({
+const InfoCard: React.FC<InfoCardProps> = ({
   img,
   location,
   title,
