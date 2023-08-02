@@ -4,15 +4,27 @@
 
 ## Mapbox
 
-Mapbox Studio provides tools for converting your data to tilesets and creating styles.
+[Mapbox Studio](https://docs.mapbox.com/studio-manual/guides/) provides tools for converting your data to tilesets and creating styles.
+
+### Template Styles
+
+* **Streets:** A complete basemap, perfect for incorporating your own data.
+* **Monochrome:** Start with a Monochrome style.
+* **Outdoors:** General basemap tailored to hiking, biking, and sport.
+* **Navigation:** Light and dark basemaps tailored to in-app navigation.
+* **Satellite Streets:** Global imagery enhanced with road and label hierarchy.
+* **Blank:** Start a style from scratch.
+
 Select **New style** and choose **Navigation** template.
 
 ### Customize Navigation
 
 1. Go to **Road network** and change color of **Motorways and trunks** to `#FD5B61`
 2. Click **Shared Icon** to get **Style URL** and **Access token**
-3. Install `react-map-gl` to your React project
-
+3. Install [React Map GL](https://visgl.github.io/react-map-gl/) to your React project
+```bash
+yarn add react-map-gl mapbox-gl @types/mapbox-gl
+```
 
 ## Getting Started
 
